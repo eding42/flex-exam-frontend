@@ -45,6 +45,7 @@
     </div>
     <!-- Our code -->
     <script>
+      // Keep submit button disabled until criteria are met
       $("#testid").on("keyup", function(e) {
         console.log(e.target.value);
         $("#submit").prop("disabled", e.target.value.length !== 8);
