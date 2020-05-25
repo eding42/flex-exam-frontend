@@ -45,7 +45,7 @@
             autocomplete="off"
             spellcheck="false"
             >
-            </div>   
+            </div>
           </div>
           <div class="col">
             <div class="form-group">
@@ -60,27 +60,37 @@
             autocomplete="off"
             spellcheck="false"
             >
-            </div>   
+            </div>
           </div>
         </div>
         <div class="row">
           <div class="col">
-             <label for="Month">Date of Birth</label>
-            <select class="form-control fe-formcontrol" name="date-month" id="date-month">
-              <option value="Month">Month</option>
-              <option value="Jan">January</option>
-              <option value="Feb">February</option>
-              <option value="Mar">March</option>
-              <option value="Apr">April</option>
-              <option value="May">May</option>
-              <option value="Jun">June</option>
-              <option value="Jul">July</option>
-              <option value="Aug">August</option>
-              <option value="Sep">September</option>
-              <option value="Oct">October</option>
-              <option value="Nov">November</option>
-              <option value="Dec">December</option>
-            </select> 
+            <label for="Month">Date of Birth</label>
+            <div style="position: relative">
+              <select class="form-control fe-formcontrol fe-select" name="date-month" id="date-month">
+                <option value="Month">Month</option>
+                <option value="Jan">January</option>
+                <option value="Feb">February</option>
+                <option value="Mar">March</option>
+                <option value="Apr">April</option>
+                <option value="May">May</option>
+                <option value="Jun">June</option>
+                <option value="Jul">July</option>
+                <option value="Aug">August</option>
+                <option value="Sep">September</option>
+                <option value="Oct">October</option>
+                <option value="Nov">November</option>
+                <option value="Dec">December</option>
+              </select>
+              <span class="fe-select-arrow">
+                <img
+                  src="/assets/chevron-down-solid.svg"
+                  width="12px"
+                  height="12px"
+                  style="position: absolute; color: #EEE; top: calc(50% - 6px); left: calc(50% - 7px)"
+                >
+              </span>
+            </div>
           </div>
         </div>
         <p id="error" class="mt-2 mb-0" style="color: #a00"></p>

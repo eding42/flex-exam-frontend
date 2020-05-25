@@ -45,6 +45,23 @@ hr {
   box-shadow: none;
 }
 
+.fe-select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
 .fe-formerror {
   border-color: #A00 !important;
+}
+
+.fe-select-arrow {
+  position: absolute;
+  top: 1px;
+  right: 0;
+  width: 36px;
+  height: calc(100% - 1px);
+  border-left: 1px solid #d9d9d9;
+  background-color: rgba(0, 0, 0, 0);
+  pointer-events: none;
 }
