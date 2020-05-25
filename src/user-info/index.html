@@ -24,21 +24,48 @@
     <br>
     <br>
     <div class="container w-75">
-      <form class="w-75 mr-auto">
-        <h3>Enter your test ID.</h3>
+    <!-- Vincent take a look at using type="search" to get that sweet sweet x button that clears all of life's miseries and memories -->
+      <form class="w-100">
+        <h3>Enter Your Personal Information</h3>
         <p>
-          For this exam demo, you can enter FLEXTEST. For the real exam, your FLEX ID will be in the FLEXTEST E-Ticket that we'll email you 2 days before each exam.
+          All fields are required.
         </p>
-        <input
-          id="testid"
-          class="form-control fe-formcontrol"
-          type="test"
-          maxlength="8"
-          minlength="8"
-          placeholder="Enter your 8-character FLEXID"
-          autocomplete="off"
-          spellcheck="false"
-        >
+        <br>
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+            <label for="firstname">First Name</label>
+            <input
+            id="firstname"
+            class="form-control fe-formcontrol"
+            type="search"
+            maxlength="8"
+            minlength="8"
+            placeholder="Enter your first name"
+            autocomplete="off"
+            spellcheck="false"
+            >
+            </div>   
+          </div>
+          <div class="col">
+            <div class="form-group">
+            <label for="lastname">Last Name</label>
+            <input
+            id="lastname"
+            class="form-control fe-formcontrol"
+            type="search"
+            maxlength="8"
+            minlength="8"
+            placeholder="Enter your last name"
+            autocomplete="off"
+            spellcheck="false"
+            >
+            </div>   
+          </div>
+        </div>
+        <div class="row">
+
+        </div>
         <p id="error" class="mt-2 mb-0" style="color: #a00"></p>
         <br>
         <input id="submit" type="submit" class="btn btn-primary fe-btn" disabled value="Continue">
