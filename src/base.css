@@ -13,6 +13,19 @@ h1,h2,h3,h4,h5 {
   font-size: 1.25rem;
 }
 
+@media (max-width: 768px) {
+  .container {
+    width: 100% !important;
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+
+  .date-col {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
 hr {
   border: none;
   height: 2px;

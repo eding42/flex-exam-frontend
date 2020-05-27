@@ -3,8 +3,8 @@
     <!-- Good ol' Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@545&display=swap" rel="stylesheet">
@@ -12,6 +12,10 @@
 
     <!-- Custom styles -->
     <link rel="stylesheet" href="/base.css">
+
+    <!-- Metadata -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FlexExam</title>
   </head>
   <body style="user-select:none">
     <hr style="height:5px;margin-top:0;background-color:#222">
@@ -25,195 +29,202 @@
     <br>
     <br>
     <div class="container w-75">
-    <!-- REMEMBER TO ADD RED BOXES IF ENTRIES ARE EMPTY -->
-      <form class="w-100">
-        <h3>Enter Your Personal Information</h3>
-        <p>
-          All fields are required.
-        </p>
-        <br>
-        <div class="row">
-          <div class="col">
-            <div class="form-group">
-            <label for="firstname">First Name</label>
-            <input
-            id="firstname"
-            class="form-control fe-formcontrol"
-            type="search"
-            placeholder="Enter your first name"
-            autocomplete="off"
-            spellcheck="false"
-            >
-            </div>
-          </div>
-          <div class="col">
-            <div class="form-group">
-            <label for="lastname">Last Name</label>
-            <input
-            id="lastname"
-            class="form-control fe-formcontrol"
-            type="search"
-            placeholder="Enter your last name"
-            autocomplete="off"
-            spellcheck="false"
-            >
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <label for="Month">Date of Birth</label>
-            <div style="position: relative">
-              <select class="form-control fe-formcontrol fe-select" name="date-month" id="date-month">
-                <option value="Month">Month</option>
-                <option value="Jan">January</option>
-                <option value="Feb">February</option>
-                <option value="Mar">March</option>
-                <option value="Apr">April</option>
-                <option value="May">May</option>
-                <option value="Jun">June</option>
-                <option value="Jul">July</option>
-                <option value="Aug">August</option>
-                <option value="Sep">September</option>
-                <option value="Oct">October</option>
-                <option value="Nov">November</option>
-                <option value="Dec">December</option>
-              </select>
-              <span class="fe-select-arrow">
-                <img
-                  src="/assets/chevron-down-solid.svg"
-                  width="12px"
-                  height="12px"
-                  style="position: absolute; color: #EEE; top: calc(50% - 6px); left: calc(50% - 7px)"
-                >
-              </span>
-            </div>
-          </div>
-          <div class="col">
-            <div class="form-group">
-            <label for="day">&nbsp;</label>
-            <input
-            id="date-day"
-            class="form-control fe-formcontrol"
-            type="number"
-            placeholder="Day"
-            autocomplete="off"
-            spellcheck="false" 
-            maxlength="2"
-            minlength="1"
-            >
-            </div>
-            </div>
-          <div class="col">
-            <div class="form-group">
-            <label for="year">&nbsp;</label>
-            <input
-            id="date-year"
-            class="form-control fe-formcontrol"
-            type="number"
-            placeholder="Year (4 digits)"
-            autocomplete="off"
-            spellcheck="false" 
-            maxlength="4"
-            minlength="1"
-            >
-            </div>
-            </div>
-          </div>
-          
-        <div class="row">
-          <div class="col">
-            <div class="form-group">
-            <label class="mb-0" for="firstname">Email Address</label>
-            <p class="mt-0 mb-2"><small>Enter the email address associated with your FlexExam account.</small></p>
-            <input
-            id="email"
-            class="form-control fe-formcontrol"
-            type="email"
-            placeholder="Enter your email address"
-            autocomplete="off"
-            spellcheck="false"
-            >
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <div class="form-group">
-            <label class="mb-1 mt-2" for="firstname">Confirm Email Address</label>
-            <input
-            id="confirm-email"
-            class="form-control fe-formcontrol"
-            type="email"
-            placeholder="Reenter your email address"
-            autocomplete="off"
-            spellcheck="false"
-            >
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <label for="Month">Date of Birth</label>
-            <div style="position: relative">
-              <select class="form-control fe-formcontrol fe-select" name="date-month" id="date-month">
-                <option value="Default">Select an option</option>
-                <option value="Home">Home</option>
-                <option value="School">School</option>
-                <option value="Other">Other</option>
-              </select>
-              <span class="fe-select-arrow">
-                <img
-                  src="/assets/chevron-down-solid.svg"
-                  width="12px"
-                  height="12px"
-                  style="position: absolute; color: #EEE; top: calc(50% - 6px); left: calc(50% - 7px)"
-                >
-              </span>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-            <div class="col">
+      <!-- REMEMBER TO ADD RED BOXES IF ENTRIES ARE EMPTY -->
+      <div class="row">
+        <div class="col-md-8">
+          <form>
+            <h3>Enter Your Personal Information</h3>
+            <p>
+              All fields are required.
+            </p>
             <br>
-            <p>Permission To Reuse</p>
-            <p style="font-size:0.9em">I grant FlexExam the unlimited right to use, reproduce, and publish my free-response materials, both written and oral, for educational research and instructional purposes. My name and the name of my school will not be used in any way in connection with my free-response materials. I understand that I am free to mark "Decline" with no effect on my score or its reporting.</p>
+            <div class="row">
+              <div class="col-md">
+                <div class="form-group">
+                  <label for="firstname">First Name</label>
+                  <input
+                    id="firstname"
+                    class="form-control fe-formcontrol"
+                    type="search"
+                    placeholder="Enter your first name"
+                    autocomplete="off"
+                    spellcheck="false"
+                    >
+                </div>
+              </div>
+              <div class="col-md">
+                <div class="form-group">
+                  <label for="lastname">Last Name</label>
+                  <input
+                    id="lastname"
+                    class="form-control fe-formcontrol"
+                    type="search"
+                    placeholder="Enter your last name"
+                    autocomplete="off"
+                    spellcheck="false"
+                    >
+                </div>
+              </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col">
+            <div class="row">
+              <div class="col-5">
+                <label for="date-month">Date of Birth</label>
+                <div style="position: relative">
+                  <select class="form-control fe-formcontrol fe-select" name="date-month" id="date-month">
+                    <option value="Month">Month</option>
+                    <option value="Jan">January</option>
+                    <option value="Feb">February</option>
+                    <option value="Mar">March</option>
+                    <option value="Apr">April</option>
+                    <option value="May">May</option>
+                    <option value="Jun">June</option>
+                    <option value="Jul">July</option>
+                    <option value="Aug">August</option>
+                    <option value="Sep">September</option>
+                    <option value="Oct">October</option>
+                    <option value="Nov">November</option>
+                    <option value="Dec">December</option>
+                  </select>
+                  <span class="fe-select-arrow">
+                    <img
+                      src="/assets/chevron-down-solid.svg"
+                      width="12px"
+                      height="12px"
+                      style="position: absolute; color: #EEE; top: calc(50% - 6px); left: calc(50% - 7px)"
+                      >
+                  </span>
+                </div>
+              </div>
+              <div class="col date-col">
+                <div class="form-group">
+                  <label for="date-day">&nbsp;</label>
+                  <input
+                    id="date-day"
+                    class="form-control fe-formcontrol"
+                    type="number"
+                    placeholder="Day"
+                    autocomplete="off"
+                    spellcheck="false"
+                    maxlength="2"
+                    minlength="1"
+                    >
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <label for="date-year">&nbsp;</label>
+                  <input
+                    id="date-year"
+                    class="form-control fe-formcontrol"
+                    type="number"
+                    placeholder="Year (4 digits)"
+                    autocomplete="off"
+                    spellcheck="false"
+                    maxlength="4"
+                    minlength="1"
+                    >
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md">
+                <div class="form-group">
+                  <label class="mb-0" for="firstname">Email Address</label>
+                  <p class="mt-0 mb-2"><small>Enter the email address associated with your FlexExam account.</small></p>
+                  <input
+                    id="email"
+                    class="form-control fe-formcontrol"
+                    type="email"
+                    placeholder="Enter your email address"
+                    autocomplete="off"
+                    spellcheck="false"
+                    >
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md">
+                <div class="form-group">
+                  <label class="mb-1 mt-2" for="firstname">Confirm Email Address</label>
+                  <input
+                    id="confirm-email"
+                    class="form-control fe-formcontrol"
+                    type="email"
+                    placeholder="Reenter your email address"
+                    autocomplete="off"
+                    spellcheck="false"
+                    >
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md">
+                <label for="Month">Date of Birth</label>
+                <div style="position: relative">
+                  <select class="form-control fe-formcontrol fe-select" name="date-month" id="date-month">
+                    <option value="Default">Select an option</option>
+                    <option value="Home">Home</option>
+                    <option value="School">School</option>
+                    <option value="Other">Other</option>
+                  </select>
+                  <span class="fe-select-arrow">
+                    <img
+                      src="/assets/chevron-down-solid.svg"
+                      width="12px"
+                      height="12px"
+                      style="position: absolute; color: #EEE; top: calc(50% - 6px); left: calc(50% - 7px)"
+                      >
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md">
+                <br>
+                <p>Permission To Reuse</p>
+                <p style="font-size:0.9em">
+                  I grant FlexExam the unlimited right to use, reproduce, and publish my free-response materials, both written and oral, for educational research and instructional purposes. My name and the name of my school will not be used in any way in connection with my free-response materials. I understand that I am free to mark "Decline" with no effect on my score or its reporting.
+                </p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md">
                 <div class="d-flex">
-                <div class="custom-control custom-radio mr-3">
+                  <div class="custom-control custom-radio mr-3">
                     <input type="radio" id="reuse-perms" name="customRadio" class="custom-control-input">
                     <label class="custom-control-label" for="accept-perms">Accept</label>
-                </div>
-                <div class="custom-control custom-radio">
+                  </div>
+                  <div class="custom-control custom-radio">
                     <input type="radio" id="reuse-perms" name="customRadio" class="custom-control-input">
                     <label class="custom-control-label" for="decline-perms">Decline</label>
+                  </div>
                 </div>
-                </div>
+              </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col">
-            <hr class="mt-4 mb-4">
-            <p>Terms and Conditions<p>
-            <p style="font-size:0.9em">I agree to the Terms and Conditions</p>
+            <div class="row">
+              <div class="col-md">
+                <hr class="mt-4 mb-4">
+                <p>Terms and Conditions<p>
+              </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col">
+            <div class="row">
+              <div class="col-md">
 
                 <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="accept-terms">
-                <label class="custom-control-label" for="accept-terms">I agree to the <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Terms and Conditions</a></label>
+                  <input type="checkbox" class="custom-control-input" id="accept-terms">
+                  <label class="custom-control-label" for="accept-terms">I agree to the <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Terms and Conditions</a></label>
                 </div>
+              </div>
             </div>
+            <p id="error" class="mt-2 mb-0" style="color: #a00"></p>
+            <br>
+            <input id="submit" type="submit" class="btn btn-primary fe-btn" disabled value="Continue">
+          </form>
         </div>
-        <p id="error" class="mt-2 mb-0" style="color: #a00"></p>
-        <br>
-        <input id="submit" type="submit" class="btn btn-primary fe-btn" disabled value="Continue">
-      </form>
+        <div class="col-md-4">
+        </div>
+      </div>
     </div>
     <!-- Our code -->
     <script>

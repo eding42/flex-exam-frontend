@@ -12,6 +12,10 @@
 
     <!-- Custom styles -->
     <link rel="stylesheet" href="/base.css">
+
+    <!-- Metadata -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FlexExam</title>
   </head>
   <body style="user-select:none">
     <hr style="height:5px;margin-top:0;background-color:#222">
@@ -25,25 +29,31 @@
     <br>
     <br>
     <div class="container w-75">
-      <form class="w-75 mr-auto">
-        <h3>Enter your test ID.</h3>
-        <p>
-          For this exam demo, you can enter FLEXTEST. For the real exam, your FLEX ID will be in the FLEXTEST E-Ticket that we'll email you 2 days before each exam.
-        </p>
-        <input
-          id="testid"
-          class="form-control fe-formcontrol"
-          type="test"
-          maxlength="8"
-          minlength="8"
-          placeholder="Enter your 8-character FLEXID"
-          autocomplete="off"
-          spellcheck="false"
-        >
-        <p id="error" class="mt-2 mb-0" style="color: #a00"></p>
-        <br>
-        <input id="submit" type="submit" class="btn btn-primary fe-btn" disabled value="Continue">
-      </form>
+      <div class="row">
+        <div class="col-md-8">
+          <form>
+            <h3>Enter your test ID.</h3>
+            <p>
+              For this exam demo, you can enter FLEXTEST. For the real exam, your FLEX ID will be in the FLEXTEST E-Ticket that we'll email you 2 days before each exam.
+            </p>
+            <input
+              id="testid"
+              class="form-control fe-formcontrol"
+              type="test"
+              maxlength="8"
+              minlength="8"
+              placeholder="Enter your 8-character FLEXID"
+              autocomplete="off"
+              spellcheck="false"
+            >
+            <p id="error" class="mt-2 mb-0" style="color: #a00"></p>
+            <br>
+            <input id="submit" type="submit" class="btn btn-primary fe-btn" disabled value="Continue">
+          </form>
+        </div>
+        <div class="col-md-4">
+        </div>
+      </div>
     </div>
     <!-- Our code -->
     <script>
