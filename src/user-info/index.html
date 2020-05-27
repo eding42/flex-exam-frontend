@@ -39,8 +39,6 @@
             id="firstname"
             class="form-control fe-formcontrol"
             type="search"
-            maxlength="8"
-            minlength="8"
             placeholder="Enter your first name"
             autocomplete="off"
             spellcheck="false"
@@ -54,8 +52,6 @@
             id="lastname"
             class="form-control fe-formcontrol"
             type="search"
-            maxlength="8"
-            minlength="8"
             placeholder="Enter your last name"
             autocomplete="off"
             spellcheck="false"
@@ -92,7 +88,55 @@
               </span>
             </div>
           </div>
+          <div class="col">
+            <div class="form-group">
+            <label for="day">&nbsp;</label>
+            <input
+            id="date-day"
+            class="form-control fe-formcontrol"
+            type="number"
+            placeholder="Day"
+            autocomplete="off"
+            spellcheck="false" 
+            maxlength="2"
+            minlength="1"
+            >
+            </div>
+            </div>
+          <div class="col">
+            <div class="form-group">
+            <label for="year">&nbsp;</label>
+            <input
+            id="date-year"
+            class="form-control fe-formcontrol"
+            type="number"
+            placeholder="Year (4 digits)"
+            autocomplete="off"
+            spellcheck="false" 
+            maxlength="4"
+            minlength="1"
+            >
+            </div>
+            </div>
+          </div>
+          
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+            <label class="mb-2" for="firstname">Email Address</label>
+            <p class="mt-1"><small>Enter the email address associated with your FlexExam account.</small></p>
+            <input
+            id="firstname"
+            class="form-control fe-formcontrol"
+            type="search"
+            placeholder="Enter your first name"
+            autocomplete="off"
+            spellcheck="false"
+            >
+            </div>
+          </div>
         </div>
+
         <p id="error" class="mt-2 mb-0" style="color: #a00"></p>
         <br>
         <input id="submit" type="submit" class="btn btn-primary fe-btn" disabled value="Continue">
