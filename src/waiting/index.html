@@ -38,7 +38,7 @@
           <h3 class="mb-0">Your Exam Will Begin Soon</h3>
           <br>
           <p class="mb-0">
-            Your FlexExam test will automatically begin at 9:26:21 PM PST.
+            Your FlexExam test will automatically begin in 5 minutes.
             <strong>Do not refresh this page or hit the back button.</strong>
           </p>
           <br>
@@ -112,13 +112,25 @@
           });
       });
 
-      var timer = setTimeout(function() {
-        var date = new Date();
-        var startdate = new Date(Cookies.get("flexexam-starttime"));
+      var hours = 0;
+      var minutes = 5;
+      var seconds = 0;
 
-        var hours = startDate()
+      var timer = setInterval(function() {
+        if (hours === 0 && minutes === 0 && seconds === 0) return;
 
-        $("#timer").text()
+        if (minutes === 0) {
+          minutes = 59;
+          hours--;
+        }
+
+        if (seconds === 0) {
+          seconds = 59;
+          minutes--;
+        }
+
+        $("#timer").text(String(hours).padStart(2, "0") + ":" + String(minutes).padStart(2, 0) + ":" + String(seconds).padStart(2, 0));
+        seconds--;
       }, 1000);
     </script>
   </body>
