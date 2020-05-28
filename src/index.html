@@ -2,9 +2,11 @@
   <head>
     <!-- Good ol' Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js">
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@545&display=swap" rel="stylesheet">
@@ -31,13 +33,14 @@
     <div class="container w-75">
       <div class="row">
         <div class="col-md-8">
-          <form>
+          <form id="testid-form" onsubmit="return false;" action="">
             <h3>Enter your test ID.</h3>
             <p>
               For this exam demo, you can enter FLEXTEST. For the real exam, your FLEX ID will be in the FLEXTEST E-Ticket that we'll email you 2 days before each exam.
             </p>
             <input
               id="testid"
+              name="testid"
               class="form-control fe-formcontrol"
               type="test"
               maxlength="8"
@@ -45,10 +48,10 @@
               placeholder="Enter your 8-character FLEXID"
               autocomplete="off"
               spellcheck="false"
-            >
-            <p id="error" class="mt-2 mb-0" style="color: #a00"></p>
-            <br>
-            <input id="submit" type="submit" class="btn btn-primary fe-btn" disabled value="Continue">
+              >
+              <p id="error" class="mt-2 mb-0" style="color: #a00"></p>
+              <br>
+              <input id="submit" type="submit" class="btn btn-primary fe-btn" disabled value="Continue">
           </form>
         </div>
         <div class="col-md-4">
@@ -59,6 +62,8 @@
     <script>
       // Keep submit button disabled until criteria are met
       $("#testid").on("keyup", function(e) {
+        if (e.key === "Enter") return;
+
         console.log(e.target.value);
         $("#submit").prop("disabled", e.target.value.length !== 8);
 
@@ -76,6 +81,28 @@
             $("#error").text("");
           }
         });
+
+      // Submit test ID
+      $("#testid-form").submit(function() {
+        $.post("http://localhost:5500/api/" + $("#testid").val() + "/validate")
+          .done(function(data) {
+            // The Test ID do be kinda valid tho
+            Cookies.set("flexexam-testid", $("#testid").val());
+            Cookies.set("flexexam-starttime", data[0]);
+            Cookies.set("flexexam-endtime", data[1]);
+            window.location.href = "http://localhost:8000/user-info";
+          })
+          .fail(function(jqXHR) {
+            // Test ID ain't valid
+            if (jqXHR.status === 404) {
+              $("#testid").toggleClass("fe-formerror", true);
+              $("#error").text("Error: Test ID is not valid.");
+            } else {
+              $("#testid").toggleClass("fe-formerror", true);
+              $("#error").text("Error: Unknown backend error. Please wait and try again.");
+            }
+          });
+      });
     </script>
   </body>
 </html>

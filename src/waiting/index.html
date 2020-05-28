@@ -1,0 +1,125 @@
+<html>
+  <head>
+    <!-- Good ol' Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js">
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@545&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="/base.css">
+
+    <!-- Metadata -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FlexExam</title>
+  </head>
+  <body style="user-select:none">
+    <hr style="height:5px;margin-top:0;background-color:#222">
+    <div class="container w-75 p-0">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light mx-0 mt-2 mb-0">
+        <h4 class="mb-0">FlexExam</h4>
+      </nav>
+    </div>
+    <hr>
+    <br>
+    <br>
+    <br>
+    <div class="container w-75">
+      <!-- REMEMBER TO ADD RED BOXES IF ENTRIES ARE EMPTY -->
+      <div class="row">
+        <div class="col-md-8">
+          <input type="hidden" id="testid" name="testid" value="">
+          <h3 class="mb-0">Your Exam Will Begin Soon</h3>
+          <br>
+          <p class="mb-0">
+            Your FlexExam test will automatically begin at 9:26:21 PM PST.
+            <strong>Do not refresh this page or hit the back button.</strong>
+          </p>
+          <br>
+          <p class="mb-0">
+            You can review the following submission guidelines while you wait.
+          </p>
+          <br>
+          <h5>How to Submit Your Response</h5>
+          <div class="card mt-4">
+            <div class="card-body p-5 w-50 d-flex flex-column justify-content-center">
+              <h4 class="card-title">Copy and Paste</h4>
+              <p class="card-text">Type your response in another application then paste it here.</p>
+            </div>
+            <div class="card-footer px-5 py-3">
+              <a data-toggle="collapse" data-target="#copy-paste-collapse" href="#" aria-controls="copy-paste-collapse">+ See Copy and Paste Guidelines</a>
+            </div>
+            <div class="collapse p-5 card-footer" id="copy-paste-collapse" aria-controls="copy-paste-collapse">
+              <h5>Requirements</h5>
+              <ul>
+                <li>Draft your response in a different application, copy it, then paste it into a text box here.</li>
+                <li><strong>Include your Flex ID and your initials at the top of the page.</strong></li>
+                <li>You cannot type your response into the text box.</li>
+                <li>You cannot paste images into the text box.</li>
+                <li>The character limit for this field is 15,000 - roughly equivalent to 5 typed pages.</li>
+                <li>If you make a mistake, hit "Clear Field" and try again.</li>
+                <li>Check the formatting and content in your pasted response. If it's wrong or incomplete, hit "Clear Field," go back to your source doc, correct the issue, and copy and paste again.</li>
+                <li>Once you hit "Submit," you cannot go back.</li>
+              </ul>
+              <h5>Recommendations</h5>
+              <ul>
+                <li>On a desktop or laptop, you can reduce the size of this application to view the exam question and your text file side-by-side.</li>
+                <li>Use one of these applications to craft your response:
+                  <ul>
+                    <li>Microsoft Word</li>
+                    <li>Google Docs</li>
+                    <li>Notes</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <br>
+          <br>
+          <br>
+        </div>
+        <div class="col-md-4">
+        </div>
+      </div>
+    </div>
+    <div class="w-100 timer">
+      <div class="container">
+        <p class="mb-1">Time Until Your Exam Starts</p>
+        <h3 class="mb-2" id="timer">05:00:00</h3>
+      </div>
+    </div>
+    <!-- Our code -->
+    <script>
+      // Set TestID
+      $("#testid").val(Cookies.get("flexexam-testid"));
+
+      // Submit info
+      $("#info-form").submit(function() {
+        $.post("http://localhost:5500/api/" + $("#testid").serialize())
+          .done(function(data) {
+            console.log(data);
+            Cookies.set("flexexam-token", data);
+            window.location.href = "http://localhost:8000/exam";
+          })
+          .fail(function(jqXHR) {
+            console.error("Submit failed!");
+          });
+      });
+
+      var timer = setTimeout(function() {
+        var date = new Date();
+        var startdate = new Date(Cookies.get("flexexam-starttime"));
+
+        var hours = startDate()
+
+        $("#timer").text()
+      }, 1000);
+    </script>
+  </body>
+</html>
