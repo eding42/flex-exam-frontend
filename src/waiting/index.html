@@ -113,20 +113,25 @@
       });
 
       var hours = 0;
-      var minutes = 5;
-      var seconds = 0;
+      var minutes = 0;
+      var seconds = 10;
+
+      $("#timer").text(String(hours).padStart(2, "0") + ":" + String(minutes).padStart(2, 0) + ":" + String(seconds).padStart(2, 0));
 
       var timer = setInterval(function() {
-        if (hours === 0 && minutes === 0 && seconds === 0) return;
-
-        if (minutes === 0) {
-          minutes = 59;
-          hours--;
+        if (hours === 0 && minutes === 0 && seconds === 0) {
+          $("#timer").text("00:00:00");
+          return;
         }
 
         if (seconds === 0) {
           seconds = 59;
           minutes--;
+
+          if (minutes === 0) {
+            minutes = 59;
+            hours--;
+          }
         }
 
         $("#timer").text(String(hours).padStart(2, "0") + ":" + String(minutes).padStart(2, 0) + ":" + String(seconds).padStart(2, 0));
