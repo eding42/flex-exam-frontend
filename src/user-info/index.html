@@ -2,7 +2,8 @@
   <head>
     <!-- Good ol' Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
@@ -47,8 +48,10 @@
                   <label for="firstname">First Name</label>
                   <input
                     id="firstname"
+                    name="firstname"
                     class="form-control fe-formcontrol"
                     type="search"
+                    required
                     placeholder="Enter your first name"
                     autocomplete="off"
                     spellcheck="false"
@@ -60,8 +63,10 @@
                   <label for="lastname">Last Name</label>
                   <input
                     id="lastname"
+                    name="lastname"
                     class="form-control fe-formcontrol"
                     type="search"
+                    required
                     placeholder="Enter your last name"
                     autocomplete="off"
                     spellcheck="false"
@@ -73,8 +78,8 @@
               <div class="col-5">
                 <label for="date-month">Date of Birth</label>
                 <div style="position: relative">
-                  <select class="form-control fe-formcontrol fe-select" name="date-month" id="date-month">
-                    <option value="Month">Month</option>
+                  <select class="form-control fe-select" name="date-month" id="date-month" class="required">
+                    <option selected="" value="">Month</option>
                     <option value="Jan">January</option>
                     <option value="Feb">February</option>
                     <option value="Mar">March</option>
@@ -103,13 +108,15 @@
                   <label for="date-day">&nbsp;</label>
                   <input
                     id="date-day"
+                    name="date-day"
                     class="form-control fe-formcontrol"
+                    required
                     type="number"
                     placeholder="Day"
                     autocomplete="off"
                     spellcheck="false"
-                    maxlength="2"
-                    minlength="1"
+                    max="31"
+                    min="1"
                     >
                 </div>
               </div>
@@ -118,13 +125,14 @@
                   <label for="date-year">&nbsp;</label>
                   <input
                     id="date-year"
+                    name="date-year"
                     class="form-control fe-formcontrol"
                     type="number"
                     placeholder="Year (4 digits)"
                     autocomplete="off"
                     spellcheck="false"
-                    maxlength="4"
-                    minlength="1"
+                    max="2019"
+                    min="1900"
                     >
                 </div>
               </div>
@@ -137,6 +145,7 @@
                   <p class="mt-0 mb-2"><small>Enter the email address associated with your FlexExam account.</small></p>
                   <input
                     id="email"
+                    name="email"
                     class="form-control fe-formcontrol"
                     type="email"
                     placeholder="Enter your email address"
@@ -152,6 +161,7 @@
                   <label class="mb-1 mt-2" for="firstname">Confirm Email Address</label>
                   <input
                     id="confirm-email"
+                    name="confirm-email"
                     class="form-control fe-formcontrol"
                     type="email"
                     placeholder="Reenter your email address"
@@ -163,13 +173,13 @@
             </div>
             <div class="row">
               <div class="col-md">
-                <label for="Month">Date of Birth</label>
+                <label for="testing-location">Testing Location</label>
                 <div style="position: relative">
-                  <select class="form-control fe-formcontrol fe-select" name="date-month" id="date-month">
-                    <option value="Default">Select an option</option>
-                    <option value="Home">Home</option>
-                    <option value="School">School</option>
-                    <option value="Other">Other</option>
+                  <select class="form-control fe-select" name="testing-location" id="testing-location" class="required">
+                    <option value="">Select an option</option>
+                    <option value="home">Home</option>
+                    <option value="school">School</option>
+                    <option value="other">Other</option>
                   </select>
                   <span class="fe-select-arrow">
                     <img
@@ -195,11 +205,11 @@
               <div class="col-md">
                 <div class="d-flex">
                   <div class="custom-control custom-radio mr-3">
-                    <input type="radio" id="accept-perms" name="customRadio" class="custom-control-input">
+                    <input type="radio" id="accept-perms" name="accept-perms" class="custom-control-input">
                     <label class="custom-control-label" for="accept-perms">Accept</label>
                   </div>
                   <div class="custom-control custom-radio">
-                    <input type="radio" id="decline-perms" name="customRadio" class="custom-control-input">
+                    <input type="radio" id="decline-perms" name="decline-perms" class="custom-control-input">
                     <label class="custom-control-label" for="decline-perms">Decline</label>
                   </div>
                 </div>
@@ -215,7 +225,7 @@
               <div class="col-md">
 
                 <div class="custom-control custom-checkbox">
-                  <input type="checkbox" class="custom-control-input" id="accept-terms">
+                  <input type="checkbox" class="custom-control-input" id="accept-terms" name="accept-terms">
                   <label class="custom-control-label" for="accept-terms">I agree to the <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Terms and Conditions</a></label>
                 </div>
               </div>
@@ -232,19 +242,61 @@
     <!-- Our code -->
     <script>
       // Set TestID
+      Cookies.get("flexexam-testid");
       $("#testid").val(Cookies.get("flexexam-testid"));
 
       // Submit info
-      $("#info-form").submit(function() {
-        $.post("http://localhost:5500/api/" + $("#testid").serialize())
-          .done(function(data) {
-            console.log(data);
-            Cookies.set("flexexam-token", data);
-            window.location.href = "http://localhost:8000/exam";
-          })
-          .fail(function(jqXHR) {
-            console.error("Submit failed!");
-          });
+      $("#info-form").validate({
+        rules: {
+          "accept-terms": {
+            required: true
+          },
+          "confirm-email": {
+            equalTo: "#email"
+          }
+        },
+        errorPlacement: function(label, element) {
+          console.log(label, element);
+          label.addClass('fe-errormsg');
+          element.addClass('fe-formerror');
+          label.insertAfter(element);
+        },
+        success: function(label, element) {
+          console.log("succ");
+          console.log(element);
+          element.classList.remove('fe-formerror');
+          if ($("#info-form").validate().checkForm()) {
+            $("#submit").prop("disabled", false);
+          }
+        },
+        submitHandler: function() {
+          $.post("/api/" + $("#testid").val(), $("#info-form").serialize())
+            .done(function(data) {
+              console.log(data);
+              Cookies.set("flexexam-token", data);
+              window.location.href = "/waiting";
+            })
+            .fail(function(jqXHR) {
+              console.error("Submit failed!");
+            });
+        },
+        invalidHandler: function(event, validator) {
+          console.log(validator);
+        }
+      });
+
+      // Select field error handling
+      $(".fe-select").change(function(e) {
+        if (e.target.value === "") {
+          console.log($(this).parent());
+          $(this).toggleClass("fe-formerror", true);
+          $(this).parent().parent().append('<label class="fe-errormsg">This field is required.</label>');
+        } else {
+          $(this).toggleClass("fe-formerror", false);
+          if ($(this).parent().next().is("label")) {
+            $(this).parent().next().remove();
+          }
+        }
       });
 
     </script>

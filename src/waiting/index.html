@@ -101,11 +101,11 @@
 
       // Submit info
       $("#info-form").submit(function() {
-        $.post("http://localhost:5500/api/" + $("#testid").serialize())
+        $.post("/api/" + $("#testid").serialize())
           .done(function(data) {
             console.log(data);
             Cookies.set("flexexam-token", data);
-            window.location.href = "http://localhost:8000/exam";
+            window.location.href = "/exam";
           })
           .fail(function(jqXHR) {
             console.error("Submit failed!");
@@ -113,15 +113,15 @@
       });
 
       var hours = 0;
-      var minutes = 1;
-      var seconds = 10;
+      var minutes = 5;
+      var seconds = 0;
 
       $("#timer").text(String(hours).padStart(2, "0") + ":" + String(minutes).padStart(2, 0) + ":" + String(seconds).padStart(2, 0));
 
       var timer = setInterval(function() {
         if (hours === 0 && minutes === 0 && seconds === 0) {
           $("#timer").text("00:00:00");
-          return;
+          window.location.href = "/exam";
         }
 
         if (seconds === -1) {

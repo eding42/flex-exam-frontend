@@ -84,13 +84,13 @@
 
       // Submit test ID
       $("#testid-form").submit(function() {
-        $.post("http://localhost:5500/api/" + $("#testid").val() + "/validate")
+        $.post("/api/" + $("#testid").val() + "/validate")
           .done(function(data) {
             // The Test ID do be kinda valid tho
             Cookies.set("flexexam-testid", $("#testid").val());
             Cookies.set("flexexam-starttime", data[0]);
             Cookies.set("flexexam-endtime", data[1]);
-            window.location.href = "http://localhost:8000/user-info";
+            window.location.href = "/user-info";
           })
           .fail(function(jqXHR) {
             // Test ID ain't valid
