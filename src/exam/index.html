@@ -95,7 +95,7 @@
           .done(function(data) {
             console.log(data);
             Cookies.set("flexexam-token", data);
-            window.location.href = "http://localhost:8000/done";
+            window.location.href = "/done";
           })
           .fail(function(jqXHR) {
             console.error("Submit failed!");
